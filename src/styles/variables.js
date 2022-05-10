@@ -45,5 +45,6 @@ export default {
     pdfPageMaxWidth: 992,
     tooltipzIndex: 10050,
     gutterWidth: 16,
+    plaidzIndex: 10051,
     popoverMenuShadow: '0px 4px 12px 0px rgba(0, 0, 0, 0.06)',
 };
