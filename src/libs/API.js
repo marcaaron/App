@@ -582,7 +582,7 @@ function Wallet_GetOnfidoSDKToken(firstName, lastName, dob) {
  * @returns {Promise}
  */
 function Plaid_GetLinkToken() {
-    return Network.post('Plaid_GetLinkToken', getPlaidLinkTokenParameters(), CONST.NETWORK.METHOD.POST, false);
+    return Network.post('Plaid_GetLinkToken', getPlaidLinkTokenParameters(), CONST.NETWORK.METHOD.POST, true);
 }
 
 /**
