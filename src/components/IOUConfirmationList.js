@@ -170,7 +170,7 @@ class IOUConfirmationList extends Component {
     getSections(participants) {
         const sections = [];
         if (this.props.hasMultipleParticipants) {
-            const [selected, unselected] = _.reduce(participants, (memo, participant) => {
+            const [selectedParticipants = [], unselectedParticipants = []] = _.reduce(participants, (memo, participant) => {
                 if (participant.selected) {
                     memo[0].push(participant);
                 } else {
@@ -178,8 +178,6 @@ class IOUConfirmationList extends Component {
                 }
                 return memo;
             }, [[], []]);
-            const selectedParticipants = selected || [];
-            const unselectedParticipants = unselected || [];
             const formattedSelectedParticipants = this.getParticipantsWithAmount(selectedParticipants);
             const formattedUnselectedParticipants = this.getParticipantsWithoutAmount(unselectedParticipants);
             const formattedParticipants = _.union(formattedSelectedParticipants, formattedUnselectedParticipants);
