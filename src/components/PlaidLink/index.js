@@ -20,31 +20,32 @@ class PlaidLink extends React.Component {
         window.removeEventListener('plaidEvent', this.onMessage);
     }
 
+    /**
+    * @param {String} e This is the type of event emitted by plaid
+    */
     onMessage(e) {
+        if (e.detail === undefined) {
+            return;
+        }
         switch (e.detail.eventName) {
-            case 'plaid-on-load':
-                console.debug('Plaid loaded');
-                return;
             case 'plaid-on-event':
-                console.debug('Plaid event: ', {event: e.detail.event, metadata: e.detail.metadata});
                 if (e.detail.event === 'ERROR') {
                     this.props.onError(e.detail.metadata);
                 }
                 if (e.detail.event === 'HANDOFF') {
                     this.setState({isHidden: true});
                 }
-                return;
+                break;
             case 'plaid-on-success':
                 // eslint-disable-next-line no-case-declarations
                 const linkSuccess = {publicToken: e.detail.public_token, metadata: e.detail.metadata};
-                console.debug('Plaid success: ', linkSuccess);
                 this.props.onSuccess(linkSuccess);
-                return;
+                break;
             case 'plaid-on-exit':
                 this.props.onExit();
-                return;
+                break;
             default:
-                console.debug(e);
+                break;
         }
     }
 

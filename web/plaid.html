@@ -32,9 +32,6 @@
           onEvent: function (event, metadata) {
             dispatchPlaidEvent({eventName: 'plaid-on-event', event, metadata});
           },
-          onLoad: function () {
-            dispatchPlaidEvent({eventName: 'plaid-on-load'});
-          },
           onSuccess: function (public_token, metadata) {
             dispatchPlaidEvent({eventName: 'plaid-on-success', public_token, metadata});
           },
