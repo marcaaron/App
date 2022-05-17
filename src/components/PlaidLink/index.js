@@ -65,6 +65,7 @@ class PlaidLink extends React.Component {
                     width="100%"
                     seamless="seamless"
                     scrolling="no"
+                    title="Connect with Plaid"
                     frameBorder="0"
                 />
 
